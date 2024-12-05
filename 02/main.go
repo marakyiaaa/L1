@@ -36,7 +36,7 @@ func SquaresNumTwo() {
 }
 
 func SquaresNumThree(arr []int) {
-	ch := make(chan int)
+	ch := make(chan int) //// Небуферизованный канал
 	var wg sync.WaitGroup
 
 	for _, val := range arr {
