@@ -89,9 +89,12 @@ func stopGoroutineWaitPanic() {
 /*os.Exit*/
 func stopGoroutineModeExit() {
 	go func() {
+		fmt.Println("Working..")
 		for {
-			fmt.Println("Worcking..")
-			time.Sleep(1 * time.Millisecond)
+			for _, r := range `-\|/` {
+				fmt.Printf("\r%c", r)
+				time.Sleep(200 * time.Millisecond)
+			}
 		}
 	}()
 	time.Sleep(1 * time.Second)
