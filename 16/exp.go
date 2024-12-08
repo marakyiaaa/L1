@@ -15,18 +15,18 @@ func partition(arr []int, low, high int) ([]int, int) {
 	return arr, i
 }
 
-func quickSort(arr []int, low, high int) []int {
+func quickSort1(arr []int, low, high int) []int {
 	if low < high {
 		var p int
 		arr, p = partition(arr, low, high)
-		arr = quickSort(arr, low, p-1)
-		arr = quickSort(arr, p+1, high)
+		arr = quickSort1(arr, low, p-1)
+		arr = quickSort1(arr, p+1, high)
 	}
 	return arr
 }
 
 func quickSortStart(arr []int) []int {
-	return quickSort(arr, 0, len(arr)-1)
+	return quickSort1(arr, 0, len(arr)-1)
 }
 
 func main() {

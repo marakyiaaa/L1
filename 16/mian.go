@@ -1,20 +1,29 @@
 package main
 
-func partition(arr []int, low, high int) []int
+import "fmt"
 
-func partition(arr []int, low, high int) ([]int, int) {
-	pivot := arr[high]
-	i := low
-	for j := low; j < high; j++ {
-		if arr[j] < pivot {
-			arr[i], arr[j] = arr[j], arr[i]
-			i++
+func quickSort(arr []int) []int {
+	if len(arr) <= 1 {
+		return arr // когда массив имеет 0 или 1 элементов он уже отсортирован => прекращаем рекурсию
+	}
+	var (
+		less []int
+		more []int
+	)
+	elem := len(arr) - 1           //перем опорным элементов последний элемент массива
+	more = append(more, arr[elem]) //запись опорного элемента в начала моссива бОльших чисел
+
+	for c := 0; c < elem; c++ {
+		if arr[c] <= arr[elem] {
+			less = append(less, arr[c]) //запись меньших значеий в массив с меньшими числами
+		} else {
+			more = append(more, arr[c]) //запись больших значиний в массив с большими числами
 		}
 	}
-	arr[i], arr[high] = arr[high], arr[i]
-	return arr, i
+	return append(quickSort(less), quickSort(more)...)
 }
 
 func main() {
-
+	arr := []int{54, 4, -5, 2, 79, 4}
+	fmt.Println(quickSort(arr))
 }
