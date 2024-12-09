@@ -14,10 +14,10 @@ func quickSort2(arr []int) []int {
 		more []int
 	)
 
-	pivot := arr[len(arr)-1] // Выбираем последний элемент как опорный
+	elem := arr[len(arr)-1] // Выбираем (значение) последний элемент как опорный
 
 	for _, value := range arr[:len(arr)-1] {
-		if value <= pivot {
+		if value <= elem {
 			less = append(less, value)
 		} else {
 			more = append(more, value)
@@ -28,8 +28,7 @@ func quickSort2(arr []int) []int {
 	less = quickSort2(less)
 	more = quickSort2(more)
 
-	// Объединяем отсортированные меньшие элементы, опорный элемент и отсортированные большие элементы
-	return append(append(less, pivot), more...)
+	return append(append(less, elem), more...)
 }
 
 func main() {

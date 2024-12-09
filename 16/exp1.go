@@ -10,7 +10,7 @@ func quickSort(arr []int) []int {
 		less []int
 		more []int
 	)
-	elem := len(arr) - 1           //перем опорным элементов последний элемент массива
+	elem := len(arr) - 1           //берем опорным элементов последний элемент массива
 	more = append(more, arr[elem]) //запись опорного элемента в начала моссива бОльших чисел
 
 	for c := 0; c < elem; c++ {
