@@ -4,9 +4,11 @@ import (
 	"fmt"
 )
 
+/*через значение опрного*/
+
 func quickSort2(arr []int) []int {
 	if len(arr) <= 1 {
-		return arr
+		return arr //завершаем рекурсию при 1 оставшемся элементе
 	}
 
 	var (
@@ -16,7 +18,7 @@ func quickSort2(arr []int) []int {
 
 	elem := arr[len(arr)-1] // Выбираем (значение) последний элемент как опорный
 
-	for _, value := range arr[:len(arr)-1] {
+	for _, value := range arr[:len(arr)-1] { //проходимся по подсрезу,невкл. в себя последний элемент
 		if value <= elem {
 			less = append(less, value)
 		} else {
